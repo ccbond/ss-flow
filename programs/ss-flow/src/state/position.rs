@@ -1,6 +1,4 @@
-use anchor_lang::account;
 use anchor_lang::prelude::*;
-
 #[account]
 pub struct Position {
     pub bump: u8,
