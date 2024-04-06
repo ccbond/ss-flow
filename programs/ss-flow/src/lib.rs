@@ -9,6 +9,7 @@ pub mod state;
 pub mod utils;
 
 pub use instructions::*;
+pub use whirlpool_cpi::state::OpenPositionBumps;
 
 #[program]
 pub mod ss_flow {
