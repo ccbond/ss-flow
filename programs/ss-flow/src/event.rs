@@ -49,7 +49,6 @@ pub struct SettleEvent {
     pub token_b: Pubkey,
     pub amount_a: u64,
     pub amount_b: u64,
-    pub settle_ts: u64,
 }
 
 /// Event emitted when accept transfered admin.

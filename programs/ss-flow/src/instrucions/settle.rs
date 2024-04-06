@@ -122,10 +122,12 @@ pub fn handler(
     whirlpool_cpi::cpi::increase_liquidity(cpi_ctx, liquidity_amount, token_max_a, token_max_b)?;
 
     emit!(SettleEvent {
-        payer: ctx.accounts.payer.key(),
+        admin: ctx.accounts.owner.key(),
         pool: pool.key(),
         token_a: pool.mint_a,
-        amount,
+        token_b: pool.mint_b,
+        amount_a: token_max_a,
+        amount_b: token_max_b,
     });
 
     Ok(())
