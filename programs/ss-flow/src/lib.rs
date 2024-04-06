@@ -20,18 +20,15 @@ pub mod ss_flow {
         amount: u64,
         proportion: u64,
     ) -> Result<()> {
-        instructions::initialize_ss_pool::handler(ctx, amount, proportion)?;
-        Ok(())
+        return instructions::initialize_ss_pool::handler(ctx, amount, proportion);
     }
 
     pub fn add_token_a(ctx: Context<AddTokenA>, amount: u64) -> Result<()> {
-        instructions::add_token_a::handler(ctx, amount)?;
-        Ok(())
+        return instructions::add_token_a::handler(ctx, amount);
     }
 
     pub fn refund_token_b(ctx: Context<RefundTokenB>, amount: u64) -> Result<()> {
-        instructions::refund_token_b::handler(ctx, amount)?;
-        Ok(())
+        return instructions::refund_token_b::handler(ctx, amount);
     }
 
     pub fn settle(
@@ -40,7 +37,6 @@ pub mod ss_flow {
         liquidity_amount: u128,
         token_max_b: u64,
     ) -> Result<()> {
-        instructions::settle::handler(ctx, precent, liquidity_amount, token_max_b)?;
-        Ok(())
+        return instructions::settle::handler(ctx, precent, liquidity_amount, token_max_b);
     }
 }
