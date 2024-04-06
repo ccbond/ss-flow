@@ -106,7 +106,7 @@ pub fn handler(
     let cpi_accounts = whirlpool_cpi::cpi::accounts::ModifyLiquidity {
         whirlpool: ctx.accounts.whirlpool.to_account_info(),
         token_program: ctx.accounts.token_program.to_account_info(),
-        position_authority: ctx.accounts.payer.to_account_info(),
+        position_authority: ctx.accounts.owner.to_account_info(),
         position: ctx.accounts.position.to_account_info(),
         position_token_account: ctx.accounts.position_token_account.to_account_info(),
         token_owner_account_a: ctx.accounts.pool_token_a_vault.to_account_info(),

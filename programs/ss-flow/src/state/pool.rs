@@ -17,13 +17,15 @@ pub struct Pool {
 
     pub vault_b: Pubkey,
 
+    pub bump: [u8; 1],
+
     pub position_count: u64,
 
     pub proportion: u64,
 }
 
 impl Pool {
-    pub const LEN: usize = 32 * 6 + 8 * 3;
+    pub const LEN: usize = 32 * 6 + 8 * 3 + 2;
     pub fn seeds(&self) -> [&[u8]; 3] {
         [&b"Pool"[..], self.base.as_ref(), self.bump.as_ref()]
     }

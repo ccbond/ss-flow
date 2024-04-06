@@ -1,4 +1,5 @@
 use crate::state::pool::Pool;
+use crate::utils::token::transfer;
 use anchor_lang::prelude::*;
 use anchor_spl::associated_token::AssociatedToken;
 use anchor_spl::token::{Mint, Token, TokenAccount};
@@ -84,7 +85,7 @@ impl RefundTokenB<'info> {
     fn receive_b(&self, amount: u64) -> Result<()> {
         transfer(
             &self.payer.to_account_info(),
-            &self.pool.token_b_ata,
+            &self.token_b_ata,
             &self.pool_token_b_vault,
             &self.token_program,
             amount,

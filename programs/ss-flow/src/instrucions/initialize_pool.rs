@@ -1,3 +1,4 @@
+use crate::event::InitializePoolEvent;
 use crate::state::pool::Pool;
 use anchor_lang::prelude::*;
 use anchor_spl::associated_token::AssociatedToken;
@@ -50,6 +51,9 @@ pub fn handler(ctx: Context<InitializePool>, amount: u64, proportion: u64) -> Re
 
     pool.base = ctx.accounts.base.key();
     pool.admin = ctx.accounts.admin.key();
+
+    pool.bump = [*unwrap_int!(ctx.bumps.get("pool"))];
+
     pool.amount = amount;
     pool.proportion = proportion;
 
