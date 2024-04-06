@@ -4,7 +4,7 @@ declare_id!("8K8ELAz6Q5uvNwQz1iYqn8BnLU1Lf1LFghCTSnBvHAF6");
 
 pub mod errors;
 pub mod event;
-pub mod instrucions;
+pub mod instructions;
 pub mod state;
 pub mod utils;
 
@@ -19,17 +19,17 @@ pub mod ss_flow {
         amount: u64,
         proportion: u64,
     ) -> Result<()> {
-        instrucions::initialize_ss_pool::handler(ctx, amount, proportion)?;
+        instructions::initialize_ss_pool::handler(ctx, amount, proportion)?;
         Ok(())
     }
 
     pub fn add_token_a(ctx: Context<AddTokenA>, amount: u64) -> Result<()> {
-        instrucions::add_token_a::handler(ctx, amount)?;
+        instructions::add_token_a::handler(ctx, amount)?;
         Ok(())
     }
 
     pub fn refund_token_b(ctx: Context<RefundTokenB>, amount: u64) -> Result<()> {
-        instrucions::refund_token_b::handler(ctx, amount)?;
+        instructions::refund_token_b::handler(ctx, amount)?;
         Ok(())
     }
 
@@ -39,7 +39,7 @@ pub mod ss_flow {
         liquidity_amount: u128,
         token_max_b: u64,
     ) -> Result<()> {
-        instrucions::settle::handler(ctx, precent, liquidity_amount, token_max_b)?;
+        instructions::settle::handler(ctx, precent, liquidity_amount, token_max_b)?;
         Ok(())
     }
 }
