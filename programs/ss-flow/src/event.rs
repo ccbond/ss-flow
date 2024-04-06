@@ -1,8 +1,5 @@
 use anchor_lang::prelude::*;
 
-// ! Event emitted
-use crate::*;
-
 /// Event emitted when initialize a pool.
 #[event]
 pub struct InitializePoolEvent {

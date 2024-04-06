@@ -1,10 +1,7 @@
 use crate::event::SettleEvent;
-use crate::state::{pool::Pool, position::Position};
 use crate::Settle;
 use anchor_lang::prelude::*;
-use anchor_spl::associated_token::AssociatedToken;
-use anchor_spl::token::{Mint, Token, TokenAccount};
-use whirlpool_cpi::{self, state::*};
+use whirlpool_cpi::{self};
 
 pub fn handler(
     ctx: Context<Settle>,
@@ -14,7 +11,7 @@ pub fn handler(
 ) -> Result<()> {
     let pool = &mut ctx.accounts.pool;
 
-    let token_max_a = pool.amount / 2;
+    let token_max_a = pool.amount * precent / 100;
 
     let cpi_program = ctx.accounts.whirlpool_program.to_account_info();
 

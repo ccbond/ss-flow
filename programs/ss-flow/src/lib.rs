@@ -6,7 +6,7 @@ use anchor_spl::{
 };
 use state::{pool::Pool, position::Position};
 use whirlpool_cpi::state::Position as WPosition;
-use whirlpool_cpi::state::{OpenPositionBumps, TickArray, Whirlpool};
+use whirlpool_cpi::state::{TickArray, Whirlpool};
 
 declare_id!("Eh3RT5S8YUbkCG8kfRwZBWETuot3AebXYaZLTgRey5SA");
 
@@ -15,8 +15,6 @@ pub mod event;
 pub mod instructions;
 pub mod state;
 pub mod utils;
-
-use instructions::*;
 
 #[program]
 pub mod ss_flow {

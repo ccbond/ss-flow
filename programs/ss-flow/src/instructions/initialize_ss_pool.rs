@@ -1,9 +1,6 @@
 use crate::event::InitializePoolEvent;
-use crate::state::pool::Pool;
 use crate::InitializeSSPool;
 use anchor_lang::prelude::*;
-use anchor_spl::associated_token::AssociatedToken;
-use anchor_spl::token::{Mint, Token, TokenAccount};
 
 pub fn handler(ctx: Context<InitializeSSPool>, amount: u64, proportion: u64) -> Result<()> {
     let pool = &mut ctx.accounts.pool;
