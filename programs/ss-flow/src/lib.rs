@@ -1,5 +1,9 @@
-use crate::instructions::*;
+use crate::instructions::add_token_a::AddTokenA;
+use crate::instructions::initialize_ss_pool::InitializeSSPool;
+use crate::instructions::refund_token_b::RefundTokenB;
+use crate::instructions::settle::Settle;
 use anchor_lang::prelude::*;
+
 use whirlpool_cpi::state::OpenPositionBumps;
 
 declare_id!("8K8ELAz6Q5uvNwQz1iYqn8BnLU1Lf1LFghCTSnBvHAF6");
@@ -12,7 +16,6 @@ pub mod utils;
 
 #[program]
 pub mod ss_flow {
-
     use super::*;
 
     pub fn initialize_pool(
