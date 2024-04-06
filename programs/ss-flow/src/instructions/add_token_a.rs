@@ -60,8 +60,8 @@ pub fn handler(ctx: Context<AddTokenA>, amount: u64) -> Result<()> {
 
     let withdraw_amount = pool.proportion * amount;
 
-    pool.transfer_from_pool_to_user(
-        pool,
+    transfer_from_pool_to_user(
+        &pool,
         &ctx.accounts.pool_token_b_vault,
         &ctx.accounts.token_b_ata,
         &ctx.accounts.token_program,
