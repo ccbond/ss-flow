@@ -12,6 +12,11 @@ pub use instructions::*;
 
 #[program]
 pub mod ss_flow {
+    use self::{
+        add_token_a::AddTokenA, initialize_ss_pool::InitializeSSPool, refund_token_b::RefundTokenB,
+        settle::Settle,
+    };
+
     use super::*;
 
     pub fn initialize_pool(
