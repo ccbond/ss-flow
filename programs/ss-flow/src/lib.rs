@@ -17,10 +17,6 @@ use instrucions::*;
 
 #[program]
 pub mod ss_flow {
-    use self::{
-        add_token_a::AddTokenA, initialize_pool::InitializePool, refund_token_b::RefundTokenB,
-    };
-
     use super::*;
 
     pub fn initialize_pool(
