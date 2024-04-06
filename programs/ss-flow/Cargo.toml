@@ -19,4 +19,4 @@ default = []
 anchor-lang = "=0.29.0"
 anchor-spl = "=0.29.0"
 whirlpool-cpi = { git = "https://github.com/orca-so/whirlpool-cpi", branch = "anchor/0.29.0" }
-solana-program = "1.18.9"
+solana-program = "1.17"
