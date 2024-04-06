@@ -63,14 +63,14 @@ pub fn handler(ctx: Context<AddTokenA>, amount: u64) -> Result<()> {
     pool.transfer_from_pool_to_user(
         pool,
         &ctx.accounts.pool_token_b_vault,
-        &ctx.accounts.receiver_token_ata,
+        &ctx.accounts.token_b_ata,
         &ctx.accounts.token_program,
         withdraw_amount,
     )?;
 
     ctx.accounts.receive_a(amount)?;
 
-    pool.deposit_token_a_amount += amount;
+    pool.amount += amount;
 
     emit!(AddTokenAEvent {
         payer: ctx.accounts.payer.key(),

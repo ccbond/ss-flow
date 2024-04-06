@@ -19,7 +19,7 @@ pub struct AddTokenAEvent {
     pub payer: Pubkey,
     pub pool: Pubkey,
     pub token_a: Pubkey,
-    pub amount: Pubkey,
+    pub amount: u64,
 }
 
 #[event]

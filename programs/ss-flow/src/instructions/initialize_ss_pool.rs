@@ -6,6 +6,9 @@ use anchor_spl::token::{Mint, Token, TokenAccount};
 
 #[derive(Accounts)]
 pub struct InitializeSSPool<'info> {
+    /// `base` is used to initialize admin account.
+    pub base: Signer<'info>,
+
     #[account(mut)]
     pub admin: Signer<'info>,
 
