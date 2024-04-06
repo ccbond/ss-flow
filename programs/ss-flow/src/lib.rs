@@ -43,7 +43,7 @@ pub mod ss_flow {
     }
 
     pub fn settle(
-        ctx: Context<Refund>,
+        ctx: Context<Settle>,
         precent: u64,
         liquidity_amount: u128,
         token_max_b: u64,

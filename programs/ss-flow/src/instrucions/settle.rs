@@ -1,3 +1,4 @@
+use crate::event::SettleEvent;
 use crate::state::{pool::Pool, position::Position};
 use anchor_lang::prelude::*;
 use anchor_spl::associated_token::AssociatedToken;

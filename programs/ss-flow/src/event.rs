@@ -50,20 +50,3 @@ pub struct SettleEvent {
     pub amount_a: u64,
     pub amount_b: u64,
 }
-
-/// Event emitted when accept transfered admin.
-#[event]
-pub struct AcceptAdminEvent {
-    pub pool: Pubkey,
-    pub previous_admin: Pubkey,
-    pub admin: Pubkey,
-}
-
-/// Event emitted when transfer admin.
-#[event]
-pub struct UserClaimEvent {
-    pub payer: Pubkey,
-    pub pool: Pubkey,
-    pub authority_nft_mint: Pubkey,
-    pub amount: u64,
-}

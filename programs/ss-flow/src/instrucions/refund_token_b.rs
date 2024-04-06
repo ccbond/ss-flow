@@ -75,7 +75,7 @@ pub fn handler(ctx: Context<RefundTokenBEvent>, amount: u64) -> Result<()> {
     emit!(RefundTokenBEvent {
         payer: ctx.accounts.payer.key(),
         pool: pool.key(),
-        token_a: pool.mint_b,
+        token_b: pool.mint_b,
         amount,
     });
 
