@@ -19,10 +19,9 @@ pub fn handler(ctx: Context<RefundTokenB>, amount: u64) -> Result<()> {
         &ctx.accounts.token_program,
         withdraw_amount,
     )?;
+    pool.amount -= withdraw_amount;
 
     ctx.accounts.receive_b(amount)?;
-
-    pool.amount -= withdraw_amount;
 
     emit!(RefundTokenBEvent {
         payer: ctx.accounts.payer.key(),

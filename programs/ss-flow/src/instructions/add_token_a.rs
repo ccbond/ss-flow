@@ -19,9 +19,8 @@ pub fn handler(ctx: Context<AddTokenA>, amount: u64) -> Result<()> {
         withdraw_amount,
     )?;
 
-    ctx.accounts.receive_a(amount)?;
-
     pool.amount += amount;
+    ctx.accounts.receive_a(amount)?;
 
     emit!(AddTokenAEvent {
         payer: ctx.accounts.payer.key(),
