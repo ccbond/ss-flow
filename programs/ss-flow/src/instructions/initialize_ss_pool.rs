@@ -3,7 +3,6 @@ use crate::state::pool::Pool;
 use anchor_lang::prelude::*;
 use anchor_spl::associated_token::AssociatedToken;
 use anchor_spl::token::{Mint, Token, TokenAccount};
-use vipers::prelude::*;
 
 #[derive(Accounts)]
 pub struct InitializeSSPool<'info> {
@@ -55,6 +54,8 @@ pub fn handler(ctx: Context<InitializeSSPool>, amount: u64, proportion: u64) -> 
 
     pool.base = ctx.accounts.base.key();
     pool.admin = ctx.accounts.admin.key();
+
+    pool.bump = ctx.bumps.get("pool").unwrap();
 
     pool.amount = amount;
     pool.proportion = proportion;
