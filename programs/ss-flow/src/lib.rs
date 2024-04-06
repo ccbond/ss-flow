@@ -8,7 +8,7 @@ pub mod instructions;
 pub mod state;
 pub mod utils;
 
-pub use instructions::*;
+use crate::instructions::*;
 pub use whirlpool_cpi::state::OpenPositionBumps;
 
 #[program]
