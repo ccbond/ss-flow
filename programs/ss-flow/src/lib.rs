@@ -1,6 +1,12 @@
 use anchor_lang::prelude::*;
 
-use whirlpool_cpi::state::OpenPositionBumps;
+use anchor_spl::{
+    associated_token::AssociatedToken,
+    token::{Mint, Token, TokenAccount},
+};
+use state::{pool::Pool, position::Position};
+use whirlpool_cpi::state::Position as WPosition;
+use whirlpool_cpi::state::{OpenPositionBumps, TickArray, Whirlpool};
 
 declare_id!("Eh3RT5S8YUbkCG8kfRwZBWETuot3AebXYaZLTgRey5SA");
 
@@ -215,7 +221,7 @@ pub struct Settle<'info> {
             payer = owner,
             bump,
             space = 8 + Position::LEN)]
-    pub position: Account<'info, Position>,
+    pub position: Account<'info, WPosition>,
 
     /// `authority_nft_mint` is only one withdraw permit of position.
     #[account(
