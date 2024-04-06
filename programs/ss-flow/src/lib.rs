@@ -34,9 +34,9 @@ pub mod ss_flow {
         return instructions::add_token_a::handler(ctx, amount);
     }
 
-    // pub fn refund_token_b(ctx: Context<RefundTokenB>, amount: u64) -> Result<()> {
-    //     return instructions::refund_token_b::handler(ctx, amount);
-    // }
+    pub fn refund_token_b(ctx: Context<RefundTokenB>, amount: u64) -> Result<()> {
+        return instructions::refund_token_b::handler(ctx, amount);
+    }
 
     pub fn settle(
         ctx: Context<Settle>,
