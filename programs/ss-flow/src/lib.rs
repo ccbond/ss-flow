@@ -19,7 +19,7 @@ pub mod ss_flow {
         amount: u64,
         proportion: u64,
     ) -> Result<()> {
-        instrucions::initialize_pool::handler(ctx, amount, proportion)?;
+        instrucions::initialize_ss_pool::handler(ctx, amount, proportion)?;
         Ok(())
     }
 
