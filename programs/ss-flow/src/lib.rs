@@ -15,7 +15,7 @@ pub mod ss_flow {
     use super::*;
 
     pub fn initialize_pool(
-        ctx: Context<InitializePool>,
+        ctx: Context<InitializeSSPool>,
         amount: u64,
         proportion: u64,
     ) -> Result<()> {

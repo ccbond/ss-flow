@@ -5,7 +5,7 @@ use anchor_spl::associated_token::AssociatedToken;
 use anchor_spl::token::{Mint, Token, TokenAccount};
 
 #[derive(Accounts)]
-pub struct InitializePool<'info> {
+pub struct InitializeSSPool<'info> {
     #[account(mut)]
     pub admin: Signer<'info>,
 
@@ -46,7 +46,7 @@ pub struct InitializePool<'info> {
     pub rent: Sysvar<'info, Rent>,
 }
 
-pub fn handler(ctx: Context<InitializePool>, amount: u64, proportion: u64) -> Result<()> {
+pub fn handler(ctx: Context<InitializeSSPool>, amount: u64, proportion: u64) -> Result<()> {
     let pool = &mut ctx.accounts.pool;
 
     pool.base = ctx.accounts.base.key();
