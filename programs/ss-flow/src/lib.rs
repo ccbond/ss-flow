@@ -8,11 +8,11 @@ pub mod instructions;
 pub mod state;
 pub mod utils;
 
-use crate::instructions::*;
-pub use whirlpool_cpi::state::OpenPositionBumps;
-
 #[program]
 pub mod ss_flow {
+    use crate::instructions::*;
+    pub use whirlpool_cpi::state::OpenPositionBumps;
+
     use super::*;
 
     pub fn initialize_pool(
