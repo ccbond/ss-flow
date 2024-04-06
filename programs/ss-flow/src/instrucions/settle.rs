@@ -26,14 +26,6 @@ pub struct Settle<'info> {
     )]
     pub pool: Box<Account<'info, Pool>>,
 
-    /// `authority_nft_mint` can only be bound to a unique pool.
-    #[account(
-            constraint = authority_nft_mint.decimals == 0,
-            constraint = authority_nft_mint.supply == 1,
-            constraint = authority_nft_mint.freeze_authority.is_none()
-        )]
-    pub authority_nft_mint: Box<Account<'info, Mint>>,
-
     /// `position` will be initialized by the `Position` string、pool address and authority nft mint.
     #[account(
             init,
