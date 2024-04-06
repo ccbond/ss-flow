@@ -22,8 +22,6 @@ pub struct Settle<'info> {
             b"flow_pool".as_ref()
         ],
         bump,
-        payer = pool.payer,
-        space = 8+ Pool::LEN
     )]
     pub pool: Box<Account<'info, Pool>>,
 

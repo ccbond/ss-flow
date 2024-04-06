@@ -13,7 +13,6 @@ pub struct RefundTokenB<'info> {
             b"flow_pool".as_ref()
         ],
         bump,
-
     )]
     pub pool: Account<'info, Pool>,
 
