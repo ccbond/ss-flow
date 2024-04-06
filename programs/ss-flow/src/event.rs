@@ -27,7 +27,7 @@ pub struct RefundTokenBEvent {
     pub payer: Pubkey,
     pub pool: Pubkey,
     pub token_b: Pubkey,
-    pub amount: Pubkey,
+    pub amount: u64,
 }
 
 /// Event emitted when initialize a position.

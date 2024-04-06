@@ -1,6 +1,6 @@
 use crate::event::RefundTokenBEvent;
 use crate::state::pool::Pool;
-use crate::utils::token::transfer;
+use crate::utils::token::{transfer, transfer_from_pool_to_user};
 use crate::RefundTokenB;
 use anchor_lang::context::Context;
 use anchor_lang::prelude::*;
@@ -12,8 +12,8 @@ pub fn handler(ctx: Context<RefundTokenB>, amount: u64) -> Result<()> {
 
     let withdraw_amount = amount / pool.proportion;
 
-    pool.transfer_from_pool_to_user(
-        pool,
+    transfer_from_pool_to_user(
+        &pool,
         &ctx.accounts.pool_token_a_vault,
         &ctx.accounts.token_a_ata,
         &ctx.accounts.token_program,
@@ -22,7 +22,7 @@ pub fn handler(ctx: Context<RefundTokenB>, amount: u64) -> Result<()> {
 
     ctx.accounts.receive_b(amount)?;
 
-    pool.deposit_token_a_amount -= withdraw_amount;
+    pool.amount -= withdraw_amount;
 
     emit!(RefundTokenBEvent {
         payer: ctx.accounts.payer.key(),
