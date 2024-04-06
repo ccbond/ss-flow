@@ -5,16 +5,16 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-ss_flow = "8K8ELAz6Q5uvNwQz1iYqn8BnLU1Lf1LFghCTSnBvHAF6"
+ss_flow = "Eh3RT5S8YUbkCG8kfRwZBWETuot3AebXYaZLTgRey5SA"
 
 [programs.devnet]
-ss_flow = "8K8ELAz6Q5uvNwQz1iYqn8BnLU1Lf1LFghCTSnBvHAF6"
+ss_flow = "Eh3RT5S8YUbkCG8kfRwZBWETuot3AebXYaZLTgRey5SA"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "devnet"
+cluster = "Devnet"
 wallet = "home/ec2-user/.config/solana/id.json"
 
 [scripts]
