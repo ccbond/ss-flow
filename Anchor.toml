@@ -14,8 +14,8 @@ ss_flow = "8K8ELAz6Q5uvNwQz1iYqn8BnLU1Lf1LFghCTSnBvHAF6"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
-wallet = "/Users/jinlong/.config/solana/ss-flow.json"
+cluster = "devnet"
+wallet = "home/ec2-user/.config/solana/id.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
