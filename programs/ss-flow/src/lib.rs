@@ -1,7 +1,7 @@
-use crate::instrucions::add_token_a::AddTokenA;
-use crate::instrucions::initialize_pool::InitializePool;
-use crate::instrucions::refund_token_b::RefundTokenB;
-use crate::instrucions::settle::Settle;
+use crate::instrucions::add_token_a::{self, AddTokenA};
+use crate::instrucions::initialize_pool::{self, InitializePool};
+use crate::instrucions::refund_token_b::{self, RefundTokenB};
+use crate::instrucions::settle::{self, Settle};
 
 use anchor_lang::prelude::*;
 
@@ -11,7 +11,6 @@ pub mod errors;
 pub mod event;
 pub mod instrucions;
 pub mod state;
-pub mod traits;
 pub mod utils;
 
 use instrucions::*;
