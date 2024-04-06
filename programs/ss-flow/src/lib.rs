@@ -11,6 +11,7 @@ pub mod errors;
 pub mod event;
 pub mod instrucions;
 pub mod state;
+pub mod traits;
 pub mod utils;
 
 use instrucions::*;

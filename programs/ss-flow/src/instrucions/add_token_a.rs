@@ -82,7 +82,7 @@ pub fn handler(ctx: Context<AddTokenA>, amount: u64) -> Result<()> {
     Ok(())
 }
 
-impl AddTokenA<'info> {
+impl<'info> AddTokenA<'info> {
     fn receive_a(&self, amount: u64) -> Result<()> {
         transfer(
             &self.payer.to_account_info(),

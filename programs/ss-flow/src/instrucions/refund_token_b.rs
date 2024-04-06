@@ -83,7 +83,7 @@ pub fn handler(ctx: Context<RefundTokenBEvent>, amount: u64) -> Result<()> {
     Ok(())
 }
 
-impl RefundTokenB<'info> {
+impl<'info> RefundTokenB<'info> {
     fn receive_b(&self, amount: u64) -> Result<()> {
         transfer(
             &self.payer.to_account_info(),
