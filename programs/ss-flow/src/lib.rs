@@ -1,4 +1,6 @@
+use crate::instructions::*;
 use anchor_lang::prelude::*;
+use whirlpool_cpi::state::OpenPositionBumps;
 
 declare_id!("8K8ELAz6Q5uvNwQz1iYqn8BnLU1Lf1LFghCTSnBvHAF6");
 
@@ -10,8 +12,6 @@ pub mod utils;
 
 #[program]
 pub mod ss_flow {
-    use crate::instructions::*;
-    pub use whirlpool_cpi::state::OpenPositionBumps;
 
     use super::*;
 
