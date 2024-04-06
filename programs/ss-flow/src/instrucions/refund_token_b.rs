@@ -81,7 +81,7 @@ pub fn handler(ctx: Context<AddTokenA>, amount: u64) -> Result<()> {
     Ok(())
 }
 
-impl RefundTokenB {
+impl RefundTokenB<'info> {
     fn receive_b(&self, amount: u64) -> Result<()> {
         transfer(
             &self.payer.to_account_info(),
