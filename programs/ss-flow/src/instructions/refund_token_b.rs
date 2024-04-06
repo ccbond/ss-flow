@@ -8,7 +8,7 @@ use anchor_spl::associated_token::AssociatedToken;
 use anchor_spl::token::{Mint, Token, TokenAccount};
 
 pub fn handler(ctx: Context<RefundTokenB>, amount: u64) -> Result<()> {
-    let pool = ctx.accounts.pool;
+    let pool = &mut ctx.accounts.pool;
 
     let withdraw_amount = amount / pool.proportion;
 
