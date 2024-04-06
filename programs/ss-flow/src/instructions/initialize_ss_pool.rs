@@ -55,7 +55,7 @@ pub fn handler(ctx: Context<InitializeSSPool>, amount: u64, proportion: u64) -> 
     pool.base = ctx.accounts.base.key();
     pool.admin = ctx.accounts.admin.key();
 
-    pool.bump = [*ctx.bumps.pool.expect("Expected bump for 'pool'")];
+    pool.bump = [*ctx.bumps.pool];
 
     pool.amount = amount;
     pool.proportion = proportion;
