@@ -8,10 +8,7 @@ pub mod instrucions;
 pub mod state;
 pub mod utils;
 
-use instrucions::{
-    self, add_token_a::AddTokenA, initialize_ss_pool::InitializeSSPool,
-    refund_token_b::RefundTokenB, settle::Settle,
-};
+pub use instructions::*;
 
 #[program]
 pub mod ss_flow {
