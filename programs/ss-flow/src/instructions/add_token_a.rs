@@ -22,8 +22,8 @@ pub fn handler(ctx: Context<AddTokenA>, amount: u64) -> Result<()> {
 
     emit!(AddTokenAEvent {
         payer: ctx.accounts.payer.key(),
-        pool: pool.key(),
-        token_a: pool.mint_a,
+        pool: ctx.accounts.pool.key(),
+        token_a: ctx.accounts.pool.mint_a,
         amount,
     });
 
