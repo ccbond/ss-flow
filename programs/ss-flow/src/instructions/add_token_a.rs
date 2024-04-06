@@ -7,20 +7,18 @@ use anchor_spl::associated_token::AssociatedToken;
 use anchor_spl::token::{Mint, Token, TokenAccount};
 
 pub fn handler(ctx: Context<AddTokenA>, amount: u64) -> Result<()> {
-    let pool = &mut ctx.accounts.pool;
-
     let withdraw_amount = pool.proportion * amount;
 
     transfer_from_pool_to_user(
-        pool,
+        &mut ctx.accounts.pool,
         &ctx.accounts.pool_token_b_vault,
         &ctx.accounts.token_b_ata,
         &ctx.accounts.token_program,
         withdraw_amount,
     )?;
 
-    pool.amount += amount;
     ctx.accounts.receive_a(amount)?;
+    ctx.accounts.pool.amount += amount;
 
     emit!(AddTokenAEvent {
         payer: ctx.accounts.payer.key(),
