@@ -5,10 +5,10 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-ss_flow = "Eh3RT5S8YUbkCG8kfRwZBWETuot3AebXYaZLTgRey5SA"
+ss_flow = "AsPzpJCRrzHCqZnV3LyykMgLKEBt4oB87XLPC1e15dSp"
 
 [programs.devnet]
-ss_flow = "Eh3RT5S8YUbkCG8kfRwZBWETuot3AebXYaZLTgRey5SA"
+ss_flow = "AsPzpJCRrzHCqZnV3LyykMgLKEBt4oB87XLPC1e15dSp"
 
 [registry]
 url = "https://api.apr.dev"

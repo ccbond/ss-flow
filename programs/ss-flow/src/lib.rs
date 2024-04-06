@@ -8,7 +8,7 @@ use state::{pool::Pool, position::Position};
 use whirlpool_cpi::state::Position as WPosition;
 use whirlpool_cpi::state::{TickArray, Whirlpool};
 
-declare_id!("Eh3RT5S8YUbkCG8kfRwZBWETuot3AebXYaZLTgRey5SA");
+declare_id!("AsPzpJCRrzHCqZnV3LyykMgLKEBt4oB87XLPC1e15dSp");
 
 pub mod errors;
 pub mod event;
