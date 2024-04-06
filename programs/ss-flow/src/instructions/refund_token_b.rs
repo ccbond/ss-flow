@@ -1,62 +1,13 @@
 use crate::event::RefundTokenBEvent;
 use crate::state::pool::Pool;
 use crate::utils::token::transfer;
+use crate::RefundTokenB;
 use anchor_lang::context::Context;
 use anchor_lang::prelude::*;
 use anchor_spl::associated_token::AssociatedToken;
 use anchor_spl::token::{Mint, Token, TokenAccount};
 
-#[derive(Accounts)]
-pub struct RefundTokenB<'info> {
-    #[account(mut)]
-    pub payer: Signer<'info>,
-
-    #[account(mut,
-        seeds = [
-            b"flow_pool".as_ref()
-        ],
-        bump,
-    )]
-    pub pool: Account<'info, Pool>,
-
-    #[account(
-        mut,
-        associated_token::authority = payer.key(),
-        associated_token::mint = pool.mint_a
-    )]
-    pub token_a_ata: Box<Account<'info, TokenAccount>>,
-
-    #[account(
-        mut,
-        constraint = pool_token_a_vault.mint == pool.mint_a,
-        constraint = pool_token_a_vault.owner == pool.key()
-    )]
-    pub pool_token_a_vault: Box<Account<'info, TokenAccount>>,
-
-    #[account(
-        mut,
-        associated_token::authority = payer.key(),
-        associated_token::mint = pool.mint_b
-    )]
-    pub token_b_ata: Box<Account<'info, TokenAccount>>,
-
-    #[account(
-        mut,
-        constraint = pool_token_b_vault.mint == pool.mint_b,
-        constraint = pool_token_b_vault.owner == pool.key()
-    )]
-    pub pool_token_b_vault: Box<Account<'info, TokenAccount>>,
-
-    pub token_program: Program<'info, Token>,
-
-    pub associated_token_program: Program<'info, AssociatedToken>,
-
-    pub system_program: Program<'info, System>,
-
-    pub rent: Sysvar<'info, Rent>,
-}
-
-pub fn handler(ctx: Context<RefundTokenBEvent>, amount: u64) -> Result<()> {
+pub fn handler(ctx: Context<RefundTokenB>, amount: u64) -> Result<()> {
     let pool = ctx.accounts.pool;
 
     let withdraw_amount = amount / pool.proportion;
