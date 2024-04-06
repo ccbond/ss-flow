@@ -1,3 +1,5 @@
+use anchor_lang::prelude::*;
+
 // ! Event emitted
 use crate::*;
 
