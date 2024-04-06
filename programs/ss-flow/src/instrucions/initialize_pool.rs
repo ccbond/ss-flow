@@ -45,8 +45,6 @@ pub struct InitializePool<'info> {
 }
 
 pub fn handler(ctx: Context<InitializePool>, amount: u64, proportion: u64) -> Result<()> {
-    invariant!(amount != 0, Errorcode::InvalidInitAmount);
-
     let pool = &mut ctx.accounts.pool;
 
     pool.base = ctx.accounts.base.key();

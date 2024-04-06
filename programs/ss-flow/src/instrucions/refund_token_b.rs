@@ -55,8 +55,6 @@ pub struct RefundTokenB<'info> {
 }
 
 pub fn handler(ctx: Context<AddTokenA>, amount: u64) -> Result<()> {
-    invariant!(amount != 0, Errorcode::InvalidInitAmount);
-
     let pool = ctx.accounts.pool;
 
     let withdraw_amount = amount / pool.proportion;

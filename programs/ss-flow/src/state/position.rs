@@ -1,3 +1,4 @@
+use anchor_lang::account;
 use anchor_lang::prelude::*;
 
 #[account]

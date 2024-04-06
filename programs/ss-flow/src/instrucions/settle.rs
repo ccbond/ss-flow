@@ -21,7 +21,7 @@ pub struct Settle<'info> {
             b"flow_pool".as_ref()
         ],
         bump,
-        payer = payer,
+        payer = pool.payer,
         space = 8+ Pool::LEN
     )]
     pub pool: Box<Account<'info, Pool>>,
@@ -97,8 +97,6 @@ pub fn handler(
     liquidity_amount: u128,
     token_max_b: u64,
 ) -> Result<()> {
-    invariant!(precent <= 100, Errorcode::InvalidInitAmount);
-
     let pool = &mut ctx.accounts.pool;
 
     let token_max_a = pool.amount / 2;
