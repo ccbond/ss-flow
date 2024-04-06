@@ -45,7 +45,7 @@ pub struct Settle<'info> {
 
     /// `authority_nft_token` is the token of authority nft mint.
     #[account(
-        constraint = authority_nft_ata.owner == receiver.key(),
+        constraint = authority_nft_ata.owner == owner.key(),
         constraint = authority_nft_ata.mint == authority_nft_mint.key(),
         constraint = authority_nft_ata.amount == 1
     )]

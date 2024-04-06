@@ -1,3 +1,4 @@
+use crate::event::AddTokenAEvent;
 use crate::state::pool::Pool;
 use crate::utils::token::transfer;
 use anchor_lang::prelude::*;

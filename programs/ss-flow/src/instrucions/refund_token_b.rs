@@ -1,3 +1,4 @@
+use crate::event::RefundTokenBEvent;
 use crate::state::pool::Pool;
 use crate::utils::token::transfer;
 use anchor_lang::prelude::*;
@@ -54,7 +55,7 @@ pub struct RefundTokenB<'info> {
     pub rent: Sysvar<'info, Rent>,
 }
 
-pub fn handler(ctx: Context<AddTokenA>, amount: u64) -> Result<()> {
+pub fn handler(ctx: Context<RefundTokenBEvent>, amount: u64) -> Result<()> {
     let pool = ctx.accounts.pool;
 
     let withdraw_amount = amount / pool.proportion;
