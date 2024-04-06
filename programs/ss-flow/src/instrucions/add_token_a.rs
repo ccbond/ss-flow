@@ -13,8 +13,6 @@ pub struct AddTokenA<'info> {
             b"flow_pool".as_ref()
         ],
         bump,
-        payer = pool.payer,
-        space = 8+ Pool::LEN
     )]
     pub pool: Account<'info, Pool>,
 
