@@ -1,4 +1,4 @@
-use crate::state::pool::Pool;
+use crate::state::{pool::Pool, position::Position};
 use anchor_lang::prelude::*;
 use anchor_spl::associated_token::AssociatedToken;
 use anchor_spl::token::{Mint, Token, TokenAccount};
@@ -29,7 +29,7 @@ pub struct Settle<'info> {
     #[account(
             init,
             seeds=[b"Position".as_ref(), pool.key().as_ref(), authority_nft_mint.key().as_ref()],
-            payer = payer,
+            payer = owner,
             bump,
             space = 8 + Position::LEN)]
     pub position: Account<'info, Position>,

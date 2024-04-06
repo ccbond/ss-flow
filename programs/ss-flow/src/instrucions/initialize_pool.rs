@@ -1,3 +1,4 @@
+use crate::state::pool::Pool;
 use anchor_lang::prelude::*;
 use anchor_spl::associated_token::AssociatedToken;
 use anchor_spl::token::{Mint, Token, TokenAccount};
@@ -20,7 +21,7 @@ pub struct InitializePool<'info> {
     pub mint_a: Account<'info, Mint>,
 
     #[account(init,
-        payer = payer,
+        payer = admin,
         associated_token::mint = mint_a,
         associated_token::authority = pool
       )]
@@ -29,7 +30,7 @@ pub struct InitializePool<'info> {
     pub mint_b: Account<'info, Mint>,
 
     #[account(init,
-        payer = payer,
+        payer = admin,
         associated_token::mint = mint_b,
         associated_token::authority = pool
       )]

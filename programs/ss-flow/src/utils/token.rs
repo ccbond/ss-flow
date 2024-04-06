@@ -23,3 +23,38 @@ pub fn transfer_from_pool_to_user<'info>(
         amount,
     )
 }
+
+pub fn transfer<'info>(
+    authority: &AccountInfo<'info>,
+    source_ata: &Account<'info, TokenAccount>,
+    target_ata: &Account<'info, TokenAccount>,
+    token_program: &Program<'info, Token>,
+    amount: u64,
+    signer_seeds: Option<&[&[&[u8]]]>,
+) -> Result<()> {
+    match signer_seeds {
+        Some(signer_seeds) => token::transfer(
+            CpiContext::new_with_signer(
+                token_program.to_account_info().clone(),
+                Transfer {
+                    from: source_ata.to_account_info().clone(),
+                    to: target_ata.to_account_info().clone(),
+                    authority: authority.clone(),
+                },
+                signer_seeds,
+            ),
+            amount,
+        ),
+        None => token::transfer(
+            CpiContext::new(
+                token_program.to_account_info().clone(),
+                Transfer {
+                    from: source_ata.to_account_info().clone(),
+                    to: target_ata.to_account_info().clone(),
+                    authority: authority.clone(),
+                },
+            ),
+            amount,
+        ),
+    }
+}
