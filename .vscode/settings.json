@@ -1,8 +1,0 @@
-{
-  "rust-analyzer.linkedProjects": [
-    "/Users/jinlong/github/solana-project/ss-flow/Cargo.toml",
-    "./programs/ss-flow/Cargo.toml",
-    "./programs/ss-flow/Cargo.toml",
-    "./programs/ss-flow/Cargo.toml"
-  ]
-}

@@ -1,0 +1,55 @@
+{
+  "name": "@syntsugar-labs/ss-flow",
+  "version": "1.0.0",
+  "description": "SS-Flow.",
+  "license": "MIT",
+  "keywords": [
+    "phantom",
+    "phantom wallet",
+    "phantom-wallet",
+    "codesandbox",
+    "solana",
+    "ethereum",
+    "crypto",
+    "blockchain",
+    "love"
+  ],
+  "main": "src/index.tsx",
+  "dependencies": {
+    "@project-serum/anchor": "^0.26.0",
+    "@saberhq/token-utils": "^3.0.0",
+    "@solana/spl-token": "^0.4.3",
+    "@solana/web3.js": "1.63.1",
+    "caniuse-lite": "^1.0.30001609",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/react": "^17.0.21",
+    "@types/react-dom": "^17.0.9",
+    "@types/styled-components": "^5.1.25",
+    "react": "^18.2.0",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3",
+    "styled-components": "^6.1.8",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "tsc": "tsc"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
