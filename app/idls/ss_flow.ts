@@ -1,331 +1,138 @@
 export type SSFlow = {
-  "version": "0.1.0",
-  "name": "ss_flow",
+  "address": "GLYAbBMPsEdsDcTtPrz3nM3ZZzy4H7KCA7YunF7R8hKU",
+  "metadata": {
+    "name": "ss_transfer_sol",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "SS Transfer Sol"
+  },
   "instructions": [
     {
-      "name": "initializePool",
+      "name": "initialize_to",
+      "discriminator": [
+        146,
+        1,
+        146,
+        208,
+        47,
+        237,
+        7,
+        110
+      ],
       "accounts": [
         {
+          "name": "to_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  95,
+                  97,
+                  99,
+                  99,
+                  111,
+                  117,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base"
+              }
+            ]
+          }
+        },
+        {
           "name": "base",
-          "isMut": false,
-          "isSigner": true,
-          "docs": [
-            "`base` is used to initialize admin account."
-          ]
+          "writable": true,
+          "signer": true
         },
         {
           "name": "admin",
-          "isMut": true,
-          "isSigner": true
+          "writable": true,
+          "signer": true
         },
         {
-          "name": "pool",
-          "isMut": true,
-          "isSigner": false
+          "name": "to"
         },
         {
-          "name": "mintA",
-          "isMut": false,
-          "isSigner": false
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
-          "name": "vaultA",
-          "isMut": true,
-          "isSigner": false
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "mintB",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "vaultB",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "associatedTokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
           "name": "rent",
-          "isMut": false,
-          "isSigner": false
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "transfer_sol",
+      "discriminator": [
+        78,
+        10,
+        236,
+        247,
+        109,
+        117,
+        21,
+        76
+      ],
+      "accounts": [
+        {
+          "name": "from",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "to_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  95,
+                  97,
+                  99,
+                  99,
+                  111,
+                  117,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "to_account.base",
+                "account": "To"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         }
       ],
       "args": [
         {
           "name": "amount",
-          "type": "u64"
-        },
-        {
-          "name": "proportion",
-          "type": "u64"
-        }
-      ]
-    },
-    {
-      "name": "addTokenA",
-      "accounts": [
-        {
-          "name": "payer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "pool",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenAAta",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "poolTokenAVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenBAta",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "poolTokenBVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "associatedTokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
-        {
-          "name": "amount",
-          "type": "u64"
-        }
-      ]
-    },
-    {
-      "name": "refundTokenB",
-      "accounts": [
-        {
-          "name": "payer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "pool",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenAAta",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "poolTokenAVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenBAta",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "poolTokenBVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "associatedTokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
-        {
-          "name": "amount",
-          "type": "u64"
-        }
-      ]
-    },
-    {
-      "name": "settle",
-      "accounts": [
-        {
-          "name": "whirlpoolProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "whirlpool",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "funder",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "owner",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "pool",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "position",
-          "isMut": true,
-          "isSigner": false,
-          "docs": [
-            "`position` will be initialized by the `Position` string、pool address and authority nft mint."
-          ]
-        },
-        {
-          "name": "authorityNftMint",
-          "isMut": false,
-          "isSigner": false,
-          "docs": [
-            "`authority_nft_mint` is only one withdraw permit of position."
-          ]
-        },
-        {
-          "name": "authorityNftAta",
-          "isMut": false,
-          "isSigner": false,
-          "docs": [
-            "`authority_nft_token` is the token of authority nft mint."
-          ]
-        },
-        {
-          "name": "positionTokenAccount",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "poolTokenAVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenOwnerAccountB",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenVaultA",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenVaultB",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tickArrayLower",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tickArrayUpper",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenAAta",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "tokenAVault",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "associatedTokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
-        {
-          "name": "precent",
-          "type": "u64"
-        },
-        {
-          "name": "liquidityAmount",
-          "type": "u128"
-        },
-        {
-          "name": "tokenMaxB",
           "type": "u64"
         }
       ]
@@ -333,37 +140,80 @@ export type SSFlow = {
   ],
   "accounts": [
     {
-      "name": "Pool",
+      "name": "To",
+      "discriminator": [
+        151,
+        25,
+        60,
+        213,
+        86,
+        79,
+        129,
+        235
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "InitializeToEvent",
+      "discriminator": [
+        255,
+        160,
+        98,
+        129,
+        241,
+        93,
+        24,
+        45
+      ]
+    },
+    {
+      "name": "TransferSOLEvent",
+      "discriminator": [
+        152,
+        30,
+        30,
+        242,
+        53,
+        48,
+        184,
+        141
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "InitializeToEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "to",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "To",
       "type": {
         "kind": "struct",
         "fields": [
           {
             "name": "base",
-            "type": "publicKey"
+            "type": "pubkey"
           },
           {
             "name": "admin",
-            "type": "publicKey"
+            "type": "pubkey"
           },
           {
-            "name": "amount",
-            "type": "u64"
-          },
-          {
-            "name": "mintA",
-            "type": "publicKey"
-          },
-          {
-            "name": "vaultA",
-            "type": "publicKey"
-          },
-          {
-            "name": "mintB",
-            "type": "publicKey"
-          },
-          {
-            "name": "vaultB",
-            "type": "publicKey"
+            "name": "to",
+            "type": "pubkey"
           },
           {
             "name": "bump",
@@ -373,34 +223,22 @@ export type SSFlow = {
                 1
               ]
             }
-          },
-          {
-            "name": "positionCount",
-            "type": "u64"
-          },
-          {
-            "name": "proportion",
-            "type": "u64"
           }
         ]
       }
     },
     {
-      "name": "Position",
+      "name": "TransferSOLEvent",
       "type": {
         "kind": "struct",
         "fields": [
           {
-            "name": "bump",
-            "type": "u8"
+            "name": "admin",
+            "type": "pubkey"
           },
           {
-            "name": "authorityNftMint",
-            "type": "publicKey"
-          },
-          {
-            "name": "pool",
-            "type": "publicKey"
+            "name": "to",
+            "type": "pubkey"
           },
           {
             "name": "amount",
@@ -408,240 +246,6 @@ export type SSFlow = {
           }
         ]
       }
-    }
-  ],
-  "events": [
-    {
-      "name": "InitializePoolEvent",
-      "fields": [
-        {
-          "name": "admin",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "pool",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "tokenA",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "tokenB",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "amount",
-          "type": "u64",
-          "index": false
-        },
-        {
-          "name": "proportion",
-          "type": "u64",
-          "index": false
-        }
-      ]
-    },
-    {
-      "name": "AddTokenAEvent",
-      "fields": [
-        {
-          "name": "payer",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "pool",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "tokenA",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "amount",
-          "type": "u64",
-          "index": false
-        }
-      ]
-    },
-    {
-      "name": "RefundTokenBEvent",
-      "fields": [
-        {
-          "name": "payer",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "pool",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "tokenB",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "amount",
-          "type": "u64",
-          "index": false
-        }
-      ]
-    },
-    {
-      "name": "WithdrawTokenAEvent",
-      "fields": [
-        {
-          "name": "payer",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "pool",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "authorityNftMint",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "lockedNft",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "remainAmount",
-          "type": "u64",
-          "index": false
-        }
-      ]
-    },
-    {
-      "name": "SettleEvent",
-      "fields": [
-        {
-          "name": "pool",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "admin",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "tokenA",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "tokenB",
-          "type": "publicKey",
-          "index": false
-        },
-        {
-          "name": "amountA",
-          "type": "u64",
-          "index": false
-        },
-        {
-          "name": "amountB",
-          "type": "u64",
-          "index": false
-        }
-      ]
-    }
-  ],
-  "errors": [
-    {
-      "code": 6000,
-      "name": "Unauthorized",
-      "msg": "Unauthorized"
-    },
-    {
-      "code": 6001,
-      "name": "InvalidInitAmount",
-      "msg": "Invalid interver when initializing pool"
-    },
-    {
-      "code": 6002,
-      "name": "EndTimeMustBeGreaterThanStartTime",
-      "msg": "End time must be greater than start_time"
-    },
-    {
-      "code": 6003,
-      "name": "StartTimeMustBeGreaterThanCurrentTime",
-      "msg": "Start time must be greater than current_time"
-    },
-    {
-      "code": 6004,
-      "name": "NftMintAlreadyInitialized",
-      "msg": "Nft mint already initialized"
-    },
-    {
-      "code": 6005,
-      "name": "InvalidNftBalance",
-      "msg": "Invalid nft balance"
-    },
-    {
-      "code": 6006,
-      "name": "WithdrawAlreadyDone",
-      "msg": "Withdraw already done"
-    },
-    {
-      "code": 6007,
-      "name": "InvalidWithdrawTime",
-      "msg": "Invalid withdraw time"
-    },
-    {
-      "code": 6008,
-      "name": "WithdrawPaused",
-      "msg": "Withdraw is paused"
-    },
-    {
-      "code": 6009,
-      "name": "VerifiedAdminFailed",
-      "msg": "Verified admin failed"
-    },
-    {
-      "code": 6010,
-      "name": "UnlockPeriodMustBeMultipleOfFreedInterval",
-      "msg": "Unlock period must be multiple of freed interval"
-    },
-    {
-      "code": 6011,
-      "name": "WithdrawNotStart",
-      "msg": "Withdraw not start"
-    },
-    {
-      "code": 6012,
-      "name": "PoolWithdrawAlreadyPause",
-      "msg": "Pool withdraw already pause"
-    },
-    {
-      "code": 6013,
-      "name": "PoolWithdrawAlreadyStart",
-      "msg": "Pool withdraw already start"
-    },
-    {
-      "code": 6014,
-      "name": "NoAvailableWithdrawToken",
-      "msg": "No available withdraw token"
-    },
-    {
-      "code": 6015,
-      "name": "InvaildAuthorityNftATA",
-      "msg": "Invaild authority nft ata"
     }
   ]
 }

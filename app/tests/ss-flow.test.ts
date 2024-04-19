@@ -42,6 +42,4 @@ describe("ss-flow", () => {
 
     console.log("Your transaction signature", tx);
   });
-
-  it("")
 });
